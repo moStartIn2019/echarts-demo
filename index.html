@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>echarts</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <!-- 屏幕分为24等份 为1920/24 => 80px -->
+  <!-- 头部 -->
+  <header>
+    <h1>程序员数据可视化图</h1>
+    <!-- 时间 -->
+    <div class="showTime"></div>
+    <script>
+      let timer = null;
+      // 开始
+      timer = setTimeout(time, 1000);
+      function time() {
+        // 清除定时
+        clearTimeout(timer);
+        let d = new Date(),
+            year = d.getFullYear(),
+            month = d.getMonth(),
+            date = d.getDate(),
+            hour = d.getHours(),
+            minute = d.getMinutes(),
+            second = d.getSeconds();
+        if(hour <= 9) {
+          hour = '0' + hour
+        };
+        if(minute <= 9) {
+          minute = '0' + minute
+        };
+        if(second <= 9) {
+          second = '0' + second;
+        }
+        document.querySelector('.showTime').innerHTML = `当前时间：${year}年${month}月${date}日-${hour}时${minute}分${second}秒`;
+        // 循环
+        timet = setTimeout(time, 1000);
+      }
+    </script>
+  </header>
+
+  <!-- 主体,echarts必须有宽高 -->
+  <section class="main">
+    <!-- 左内容区域 -->
+    <div class="left_content_wrap">
+      <!-- 左上 -->
+      <div class="left_top pannel">
+        <h2>就业形势</h2>
+        <div class="echart bar_1"></div>
+        <div class="void_box"></div>
+      </div>
+      <!-- 左中 -->
+      <div class="left_middle pannel">
+        <h2>就业形势<a href="javascript:;">2020</a><a href="javascript:;">2021</a></h2>
+        <div class="echart line_1"></div>
+        <div class="void_box"></div>
+      </div>
+      <!-- 左下 -->
+      <div class="left_bottom pannel">
+        <h2>就业形势</h2>
+        <div class="echart pie_1"></div>
+        <div class="void_box"></div>
+      </div>
+    </div>
+    <div class="middle_content_wrap">
+      <!-- 中上 -->
+      <div class="middle_top">
+        <!-- no -->
+        <div class="top_no">
+          <ul>
+            <li>666666</li>
+            <li>∞</li>
+          </ul>
+        </div>
+        <!-- desc -->
+        <div class="top_desc">
+          <ul>
+            <li>前端需求人数</li>
+            <li>前端就业市场</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 中下 -->
+      <div class="middle_bottom">
+        <div class="map_wrap">
+          <div class="map_1"></div>
+          <div class="map_2"></div>
+          <div class="map_3"></div>
+          <div class="map_4"></div>
+        </div>
+      </div>
+    </div>
+    <!-- 右内容区域 -->
+    <div class="right_content_wrap">
+      <!-- 右上 -->
+      <div class="right_top pannel">
+        <h2>就业形势</h2>
+        <div class="echart bar_2"></div>
+        <div class="void_box"></div>
+      </div>
+      <!-- 右中 -->
+      <div class="right_middle pannel">
+        <h2>就业形势</h2>
+        <div class="echart line_2"></div>
+        <div class="void_box"></div>
+      </div>
+      <!-- 右下 -->
+      <div class="right_bottom pannel">
+        <h2>就业形势</h2>
+        <div class="echart pie_2"></div>
+        <div class="void_box"></div>
+      </div>
+    </div>
+  </section>
+  <script src="js/flexible.js"></script>
+  <script src="js/echarts.min.js"></script>
+  <script src="js/jquery.js"></script>
+  <!-- <script src="js/china.js"></script> -->
+  <script src="js/index.js"></script>
+</body>
+</html>
